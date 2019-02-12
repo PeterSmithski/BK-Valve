@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F95E2129A103DD79FABFDF2 /* Pods_BK_Valve.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF5D09B14B503178CC4B43F /* Pods_BK_Valve.framework */; };
 		6661F8C92212436400722812 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6661F8C82212436400722812 /* AppDelegate.swift */; };
 		6661F8CB2212436400722812 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6661F8CA2212436400722812 /* ViewController.swift */; };
 		6661F8CE2212436400722812 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6661F8CC2212436400722812 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4CF5D09B14B503178CC4B43F /* Pods_BK_Valve.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BK_Valve.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6661F8C52212436400722812 /* BK-Valve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BK-Valve.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6661F8C82212436400722812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6661F8CA2212436400722812 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		6661F8D22212436600722812 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6661F8D52212436600722812 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6661F8D72212436600722812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E0813E957A3B62D74BD1E0D /* Pods-BK-Valve.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BK-Valve.release.xcconfig"; path = "Pods/Target Support Files/Pods-BK-Valve/Pods-BK-Valve.release.xcconfig"; sourceTree = "<group>"; };
+		C8A969AEE3FAD3F6838911DC /* Pods-BK-Valve.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BK-Valve.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BK-Valve/Pods-BK-Valve.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F95E2129A103DD79FABFDF2 /* Pods_BK_Valve.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52168D79A7A7D85362D2DF64 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C8A969AEE3FAD3F6838911DC /* Pods-BK-Valve.debug.xcconfig */,
+				6E0813E957A3B62D74BD1E0D /* Pods-BK-Valve.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6661F8BC2212436400722812 = {
 			isa = PBXGroup;
 			children = (
 				6661F8C72212436400722812 /* BK-Valve */,
 				6661F8C62212436400722812 /* Products */,
+				52168D79A7A7D85362D2DF64 /* Pods */,
+				C31B8C50FF7546AA4101C23A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +72,47 @@
 		6661F8C72212436400722812 /* BK-Valve */ = {
 			isa = PBXGroup;
 			children = (
-				6661F8C82212436400722812 /* AppDelegate.swift */,
-				6661F8CA2212436400722812 /* ViewController.swift */,
-				6661F8CC2212436400722812 /* Main.storyboard */,
-				6661F8D22212436600722812 /* Assets.xcassets */,
-				6661F8D42212436600722812 /* LaunchScreen.storyboard */,
+				6661F8DF221243B900722812 /* Controller */,
+				6661F8DE221243B500722812 /* Model */,
+				6661F8DD221243AF00722812 /* View */,
 				6661F8D72212436600722812 /* Info.plist */,
-				6661F8CF2212436400722812 /* BK_Valve.xcdatamodeld */,
 			);
 			path = "BK-Valve";
+			sourceTree = "<group>";
+		};
+		6661F8DD221243AF00722812 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6661F8D42212436600722812 /* LaunchScreen.storyboard */,
+				6661F8CC2212436400722812 /* Main.storyboard */,
+				6661F8D22212436600722812 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6661F8DE221243B500722812 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6661F8CF2212436400722812 /* BK_Valve.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6661F8DF221243B900722812 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6661F8C82212436400722812 /* AppDelegate.swift */,
+				6661F8CA2212436400722812 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C31B8C50FF7546AA4101C23A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CF5D09B14B503178CC4B43F /* Pods_BK_Valve.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +122,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6661F8DA2212436600722812 /* Build configuration list for PBXNativeTarget "BK-Valve" */;
 			buildPhases = (
+				B65B3F836144F0D59D674F7F /* [CP] Check Pods Manifest.lock */,
 				6661F8C12212436400722812 /* Sources */,
 				6661F8C22212436400722812 /* Frameworks */,
 				6661F8C32212436400722812 /* Resources */,
+				587D7A72F26836234DAA4184 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +182,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		587D7A72F26836234DAA4184 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BK-Valve/Pods-BK-Valve-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BK-Valve/Pods-BK-Valve-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B65B3F836144F0D59D674F7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BK-Valve-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6661F8C12212436400722812 /* Sources */ = {
@@ -284,6 +381,7 @@
 		};
 		6661F8DB2212436600722812 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8A969AEE3FAD3F6838911DC /* Pods-BK-Valve.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,12 +394,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "pl.bk-exhaust.BK-Valve";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		6661F8DC2212436600722812 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E0813E957A3B62D74BD1E0D /* Pods-BK-Valve.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -314,7 +413,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "pl.bk-exhaust.BK-Valve";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
