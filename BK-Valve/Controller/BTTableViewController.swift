@@ -22,7 +22,7 @@ class BTTableViewController: UITableViewController, BluetoothSerialDelegate {
         
         //btDelegate.delegate = self
         serial = BluetoothSerial(delegate: self)
-        
+        UITabBar.appearance().barTintColor = UIColor.lightGray 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -117,7 +117,7 @@ class BTTableViewController: UITableViewController, BluetoothSerialDelegate {
     // TODO: Add message box if bluetooth is off
     func serialDidChangeState() {
         if serial.centralManager.state != .poweredOn{
-            messageBox(title: "Bluetooth off", text: "Please turn on bluetooth", btText: "Ok", goToSettings: true)
+            messageBox(title: "Bluetooth is off", message: "Please turn on bluetooth", btText: "Ok", goToSettings: true)
         }
     }
     // TODO: Add msg box after device disconnects

@@ -9,6 +9,7 @@
 import UIKit
 import UICircularProgressRing
 import CoreBluetooth
+import CoreData
 
 class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDelegate {
     
@@ -26,6 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
     
     var sliderValue: Int = 0
     var valueFieldToSlider: Float = 0
+    var angleValue: Int = 0
     
     let crc16 = CRC16()
     
@@ -36,6 +38,8 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
         //progressRing.ringStyle = .gradient
         self.hideKeyboardWhenTappedAround()
         
+        UITabBar.appearance().barTintColor = UIColor.lightGray // your color
+        
         serial = BluetoothSerial(delegate: self)
         
         valueField.delegate = self
@@ -43,6 +47,8 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
         valueField.backgroundColor = UIColor.lightGray
         valueField.textColor = UIColor.white
         valueField.allowsEditingTextAttributes = false
+        
+        progressRing.font = UIFont.systemFont(ofSize: 50)
         
         if serial.connectedPeripheral != nil {
             connectedDeviceLabel.text = "Connected to \(String(describing: serial.connectedPeripheral?.name))"
@@ -65,7 +71,7 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
         if Int(valueField.text ?? String(0)) ?? 0 > 100{
             valueField.text = String(100)
         }
-        
+        angleValue = Int(valueField.text ?? String(0)) ?? 0
         valueFieldToSlider = Float((valueField.text ?? String(0))) ?? 0
         slider.value = (valueFieldToSlider * 255) / 100
         
@@ -78,10 +84,13 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
     
     
     @IBAction func sliderChanged(_ sender: Any) {
-        valueField.text = String(Int((slider.value/255)*100))
+        valueField.text = String(Int((slider.value/255)*100))  // Byte's 0xFF(Hex) is 255(Dec) so maximum slider value is 255
+                                                               // to have a better precision with microsteps on the device
+        angleValue = Int((slider.value/255)*100)
+        
         valueChanged(value: Int((slider.value/255)*100))
         
-        print("PGRing maxVal: \(progressRing.maxValue)")
+        //print("PGRing maxVal: \(progressRing.maxValue)")
         
         sendData(value: UInt8(slider.value))
     }
@@ -89,11 +98,11 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
     
     
     @IBAction func addButton(_ sender: UIButton) {
-       
+        messageBox(title: "Add a new profile", message: "Please type in the profile", btText: "Cancel", angleValue: angleValue)
     }
     
     func sendData(value: UInt8){
-        dataBuffer.append(0x03)
+        dataBuffer.append(0x03)     // Creating frame for sending
         dataBuffer.append(0x01)
         dataBuffer.append(value)
         
@@ -116,7 +125,7 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
         let receivedCRC = receivedBuffer[receivedBuffer.count - 2 ... receivedBuffer.count]
         let calculateCRCFromReceivedData = crc16.getCRCResult(by: Array(receivedPotentialData))
         
-        if Array(receivedCRC) == calculateCRCFromReceivedData{          //Comparing the received and calculated CRC
+        if Array(receivedCRC) == calculateCRCFromReceivedData{          // Comparing the received and calculated CRC
             receivedBytes = Array(receivedPotentialData)
         }
         else{
@@ -126,18 +135,16 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
     
     func serialDidChangeState() {
         if serial.centralManager.state != .poweredOn{
-            messageBox(title: "Bluetooth is off", text: "Please turn on bluetooth", btText: "Cancel", goToSettings: true)
+            messageBox(title: "Bluetooth is off", message: "Please turn on bluetooth", btText: "Ok", goToSettings: true)
         }
     }
     
     func serialDidDisconnect(_ peripheral: CBPeripheral, error: NSError?) {
         if serial.centralManager.state != .poweredOn{
-            messageBox(title: "Oops!", text: "Device disconnected :(", btText: "Ok", goToSettings: false)
+            messageBox(title: "Oops!", message: "Device disconnected :(", btText: "Ok")
         }
     }
-   
-    
-    
+       
     
 }
 

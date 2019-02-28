@@ -15,12 +15,10 @@
 		6661F8D32212436600722812 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6661F8D22212436600722812 /* Assets.xcassets */; };
 		6661F8D62212436600722812 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6661F8D42212436600722812 /* LaunchScreen.storyboard */; };
 		667C59D32217A8FD0029F8AD /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C59D12217A8FD0029F8AD /* ProfileTableViewController.swift */; };
-		667C59D42217A8FD0029F8AD /* ProfileTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 667C59D22217A8FD0029F8AD /* ProfileTableViewController.xib */; };
 		667C59D62217B6100029F8AD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C59D52217B6100029F8AD /* Utilities.swift */; };
 		667C59D82217BE800029F8AD /* CRC16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C59D72217BE800029F8AD /* CRC16.swift */; };
 		668981FF221644A200E1AE21 /* BluetoothSerial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668981FE221644A200E1AE21 /* BluetoothSerial.swift */; };
 		66898202221644CC00E1AE21 /* BTTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66898200221644CC00E1AE21 /* BTTableViewController.swift */; };
-		66898203221644CC00E1AE21 /* BTTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66898201221644CC00E1AE21 /* BTTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,12 +32,10 @@
 		6661F8D52212436600722812 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6661F8D72212436600722812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		667C59D12217A8FD0029F8AD /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
-		667C59D22217A8FD0029F8AD /* ProfileTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewController.xib; sourceTree = "<group>"; };
 		667C59D52217B6100029F8AD /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		667C59D72217BE800029F8AD /* CRC16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRC16.swift; sourceTree = "<group>"; };
 		668981FE221644A200E1AE21 /* BluetoothSerial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothSerial.swift; sourceTree = "<group>"; };
 		66898200221644CC00E1AE21 /* BTTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTTableViewController.swift; sourceTree = "<group>"; };
-		66898201221644CC00E1AE21 /* BTTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BTTableViewController.xib; sourceTree = "<group>"; };
 		6E0813E957A3B62D74BD1E0D /* Pods-BK-Valve.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BK-Valve.release.xcconfig"; path = "Pods/Target Support Files/Pods-BK-Valve/Pods-BK-Valve.release.xcconfig"; sourceTree = "<group>"; };
 		C8A969AEE3FAD3F6838911DC /* Pods-BK-Valve.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BK-Valve.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BK-Valve/Pods-BK-Valve.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,8 +115,6 @@
 				667C59D12217A8FD0029F8AD /* ProfileTableViewController.swift */,
 				66898200221644CC00E1AE21 /* BTTableViewController.swift */,
 				6661F8CA2212436400722812 /* ViewController.swift */,
-				66898201221644CC00E1AE21 /* BTTableViewController.xib */,
-				667C59D22217A8FD0029F8AD /* ProfileTableViewController.xib */,
 				667C59D52217B6100029F8AD /* Utilities.swift */,
 				667C59D72217BE800029F8AD /* CRC16.swift */,
 				668981FE221644A200E1AE21 /* BluetoothSerial.swift */,
@@ -199,8 +193,6 @@
 				6661F8D62212436600722812 /* LaunchScreen.storyboard in Resources */,
 				6661F8D32212436600722812 /* Assets.xcassets in Resources */,
 				6661F8CE2212436400722812 /* Main.storyboard in Resources */,
-				66898203221644CC00E1AE21 /* BTTableViewController.xib in Resources */,
-				667C59D42217A8FD0029F8AD /* ProfileTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +413,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "pl.bk-exhaust.BK-Valve";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -440,6 +433,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "pl.bk-exhaust.BK-Valve";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
