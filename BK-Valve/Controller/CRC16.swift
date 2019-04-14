@@ -12,7 +12,7 @@ import Foundation
 class CRC16 {
     var crcTable: [Int] = []
     /// Seed, You should change this seed.
-    let gPloy = 0x0000
+    let gPloy = 0xFFFF
     
     static let instance = CRC16()
     

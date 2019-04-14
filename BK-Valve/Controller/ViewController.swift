@@ -14,12 +14,15 @@ import CoreData
 class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDelegate {
     
     
+    
+    
     var peripherals: [(peripheral: CBPeripheral, RSSI: Float)] = []
     var selectedPeripheral: CBPeripheral?
     var receivedBytes: [UInt8] = []
     var receivedBuffer: [UInt8] = []
     var dataBuffer: [UInt8] = []
     
+    @IBOutlet weak var profileLabel: UILabel!
     @IBOutlet weak var connectedDeviceLabel: UILabel!
     @IBOutlet weak var progressRing: UICircularProgressRing!
     @IBOutlet weak var slider: UISlider!
@@ -33,14 +36,14 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let progressRing = UICircularProgressRing()
-        //progressRing.maxValue = 300
-        //progressRing.ringStyle = .gradient
+        
+        
         self.hideKeyboardWhenTappedAround()
         
         UITabBar.appearance().barTintColor = UIColor.lightGray // your color
         
         serial = BluetoothSerial(delegate: self)
+        
         
         valueField.delegate = self
         valueField.keyboardType = .asciiCapableNumberPad
@@ -59,6 +62,24 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
 
         }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        print(connectedPeripheral)
+        if(connectedPeripheral == "Not connected"){
+            connectedDeviceLabel.text = connectedPeripheral
+        }
+        else{
+            connectedDeviceLabel.text = "Connected to: \(connectedPeripheral)"
+        }
+        profileLabel.text = "Current profile: \(Properties.sharedInstance.selectedProfile)"
+        angleValue = Int(Properties.sharedInstance.selectedAngle)
+        valueChanged(value: angleValue)
+        slider.value = Float((angleValue * 255)/100)
+        valueField.text = String(angleValue)
+        sendData(value: UInt8(slider.value))
+        
+    }
+    
     @IBAction func valueFieldEditingBegin(_ sender: Any) {
         
         //valueField.text = ""
@@ -72,6 +93,12 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
             valueField.text = String(100)
         }
         angleValue = Int(valueField.text ?? String(0)) ?? 0
+        
+        if(angleValue != Int(Properties.sharedInstance.selectedAngle)){
+            profileLabel.text = "Current profile: "
+            Properties.sharedInstance.selectedProfile = ""
+            Properties.sharedInstance.selectedAngle = Int16(angleValue)
+        }
         valueFieldToSlider = Float((valueField.text ?? String(0))) ?? 0
         slider.value = (valueFieldToSlider * 255) / 100
         
@@ -87,6 +114,12 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
         valueField.text = String(Int((slider.value/255)*100))  // Byte's 0xFF(Hex) is 255(Dec) so maximum slider value is 255
                                                                // to have a better precision with microsteps on the device
         angleValue = Int((slider.value/255)*100)
+        
+        if(angleValue != Int(Properties.sharedInstance.selectedAngle)){
+            profileLabel.text = "Current profile: "
+            Properties.sharedInstance.selectedProfile = ""
+            Properties.sharedInstance.selectedAngle = Int16(angleValue)
+        }
         
         valueChanged(value: Int((slider.value/255)*100))
         
@@ -108,8 +141,11 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
         
         let crc = crc16.getCRCResult(by: dataBuffer)
         
+        print(dataBuffer)
+        print(crc16.getCRCResult(by: dataBuffer))
         serial.sendBytesToDevice(dataBuffer)
         serial.sendBytesToDevice(crc)
+        dataBuffer.removeAll()
     }
     
     func valueChanged(value: Int){
@@ -144,7 +180,6 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
             messageBox(title: "Oops!", message: "Device disconnected :(", btText: "Ok")
         }
     }
-       
     
 }
 

@@ -9,6 +9,8 @@
 import UIKit
 import CoreBluetooth
 
+var connectedPeripheral: String = "Not connected"
+
 class BTTableViewController: UITableViewController, BluetoothSerialDelegate {
     
     //let btDelegate = BluetoothSerial(delegate: self as! BluetoothSerialDelegate)
@@ -22,6 +24,7 @@ class BTTableViewController: UITableViewController, BluetoothSerialDelegate {
         
         //btDelegate.delegate = self
         serial = BluetoothSerial(delegate: self)
+        print("view loaded")
         UITabBar.appearance().barTintColor = UIColor.lightGray 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -67,6 +70,7 @@ class BTTableViewController: UITableViewController, BluetoothSerialDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         serial.stopScan()
         serial.connectToPeripheral(peripherals[indexPath.row].peripheral)
+        connectedPeripheral = String(peripherals[indexPath.row].peripheral.name!)
     }
     /*
     // Override to support conditional editing of the table view.
@@ -119,10 +123,14 @@ class BTTableViewController: UITableViewController, BluetoothSerialDelegate {
         if serial.centralManager.state != .poweredOn{
             messageBox(title: "Bluetooth is off", message: "Please turn on bluetooth", btText: "Ok", goToSettings: true)
         }
+        else{
+            serial.startScan()
+        }
     }
     // TODO: Add msg box after device disconnects
     func serialDidDisconnect(_ peripheral: CBPeripheral, error: NSError?) {
-        
+        messageBox(title: "Disconnected", message: "Device has been disconnected", btText: "Ok")
+        connectedPeripheral = "Not connected"
     }
     
     func serialDidDiscoverPeripheral(_ peripheral: CBPeripheral, RSSI: NSNumber?) {
@@ -135,6 +143,7 @@ class BTTableViewController: UITableViewController, BluetoothSerialDelegate {
         peripherals.append((peripheral: peripheral, RSSI: theRSSI))
         peripherals.sort {$0.RSSI < $1.RSSI}
         tableView.reloadData()
+        print("dupa123")
     }
     
     func serialDidReceiveBytes(_ bytes: [UInt8]) {

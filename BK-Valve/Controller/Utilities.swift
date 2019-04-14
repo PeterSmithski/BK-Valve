@@ -76,11 +76,11 @@ extension UIViewController {
         
         alert.addTextField()
         
-        guard let textField = alert.textFields?.first else {return "chuj"}
+        guard let textField = alert.textFields?.first else {return "nil"}
         
         self.present(alert, animated: true, completion: nil)
         
-        return textField.text ?? "cipa"
+        return textField.text ?? "nil"
         }
     
     func saveData(profileName: String, angleValue: Int){ //, angleValue: Int
@@ -102,4 +102,6 @@ extension UIViewController {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
+    
+    
 }

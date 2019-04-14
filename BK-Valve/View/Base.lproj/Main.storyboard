@@ -47,7 +47,7 @@
                             <outlet property="delegate" destination="RNk-Sj-Vkw" id="hRV-6l-bZx"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Connect" id="cvs-hv-aAt">
+                    <tabBarItem key="tabBarItem" title="Connect" image="Connect" selectedImage="Connect" id="cvs-hv-aAt">
                         <color key="badgeColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                 </tableViewController>
@@ -122,16 +122,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connected to: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEp-2D-hVo" userLabel="Device Label">
-                                        <rect key="frame" x="20" y="27" width="113" height="20"/>
+                                        <rect key="frame" x="20" y="27" width="280" height="20"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="HEp-2D-hVo" firstAttribute="leading" secondItem="Eiy-gb-sqc" secondAttribute="leading" constant="20" id="4Dn-sn-0VE"/>
-                                    <constraint firstItem="HEp-2D-hVo" firstAttribute="centerY" secondItem="Eiy-gb-sqc" secondAttribute="centerY" id="IXk-P7-2j5"/>
-                                    <constraint firstItem="HEp-2D-hVo" firstAttribute="centerX" secondItem="Eiy-gb-sqc" secondAttribute="centerX" constant="-83.5" id="bQa-kv-mYB"/>
+                                    <constraint firstItem="HEp-2D-hVo" firstAttribute="centerX" secondItem="Eiy-gb-sqc" secondAttribute="centerX" id="ciG-oa-7jT"/>
+                                    <constraint firstItem="HEp-2D-hVo" firstAttribute="leading" secondItem="Eiy-gb-sqc" secondAttribute="leading" constant="20" id="lkV-Pz-ie4"/>
+                                    <constraint firstItem="HEp-2D-hVo" firstAttribute="centerY" secondItem="Eiy-gb-sqc" secondAttribute="centerY" id="vMB-Ug-Uhd"/>
+                                    <constraint firstAttribute="trailing" secondItem="HEp-2D-hVo" secondAttribute="trailing" constant="20" id="wH9-xd-36q"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B2x-Hz-zB1" userLabel="Bot Container">
@@ -144,13 +145,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current profile: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBo-Y4-Wrn" userLabel="Profile Label">
-                                        <rect key="frame" x="33" y="34.5" width="120" height="21"/>
+                                        <rect key="frame" x="20" y="38" width="280" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="125" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="Ane-5M-ogB" userLabel="Value Slider">
-                                        <rect key="frame" x="18" y="77.5" width="284" height="31"/>
+                                        <rect key="frame" x="18" y="66" width="284" height="54"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="minimumTrackTintColor" red="1" green="0.31972376390000001" blue="0.38570577249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="thumbTintColor" red="1" green="0.31972376390000001" blue="0.38570577249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -185,20 +186,23 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="sBo-Y4-Wrn" firstAttribute="leading" secondItem="B2x-Hz-zB1" secondAttribute="leading" constant="33" id="7ds-Yk-DYs"/>
+                                    <constraint firstItem="sBo-Y4-Wrn" firstAttribute="top" secondItem="B2x-Hz-zB1" secondAttribute="top" constant="38" id="05y-r0-Kfm"/>
                                     <constraint firstItem="Ane-5M-ogB" firstAttribute="leading" secondItem="B2x-Hz-zB1" secondAttribute="leading" constant="20" id="CvV-st-VQ7"/>
                                     <constraint firstItem="3l9-YL-LEY" firstAttribute="centerX" secondItem="B2x-Hz-zB1" secondAttribute="centerX" constant="59" id="Ggo-wO-hHQ"/>
                                     <constraint firstItem="Ane-5M-ogB" firstAttribute="centerY" secondItem="B2x-Hz-zB1" secondAttribute="centerY" id="HWM-M8-jJ8"/>
+                                    <constraint firstAttribute="trailing" secondItem="sBo-Y4-Wrn" secondAttribute="trailing" constant="20" id="LLg-n9-1JG"/>
                                     <constraint firstAttribute="trailing" secondItem="Ane-5M-ogB" secondAttribute="trailing" constant="20" id="Plr-Sx-AkE"/>
-                                    <constraint firstItem="sBo-Y4-Wrn" firstAttribute="centerX" secondItem="B2x-Hz-zB1" secondAttribute="centerX" constant="-67" id="Qqc-xA-Urj"/>
                                     <constraint firstItem="Ane-5M-ogB" firstAttribute="centerX" secondItem="B2x-Hz-zB1" secondAttribute="centerX" id="TXf-pX-Dcc"/>
-                                    <constraint firstItem="sBo-Y4-Wrn" firstAttribute="centerY" secondItem="B2x-Hz-zB1" secondAttribute="centerY" constant="-47.5" id="YkJ-rr-QKq"/>
+                                    <constraint firstItem="sBo-Y4-Wrn" firstAttribute="centerX" secondItem="B2x-Hz-zB1" secondAttribute="centerX" id="UX2-L5-A6t"/>
                                     <constraint firstItem="hUh-Mn-9Jn" firstAttribute="centerX" secondItem="B2x-Hz-zB1" secondAttribute="centerX" constant="-58" id="ZIe-tU-xDR"/>
                                     <constraint firstItem="0mH-aG-PT1" firstAttribute="leading" secondItem="3l9-YL-LEY" secondAttribute="trailing" constant="19" id="az9-zQ-cEF"/>
                                     <constraint firstItem="0mH-aG-PT1" firstAttribute="centerY" secondItem="B2x-Hz-zB1" secondAttribute="centerY" constant="49.5" id="e36-Yc-Vwj"/>
                                     <constraint firstItem="0mH-aG-PT1" firstAttribute="centerX" secondItem="B2x-Hz-zB1" secondAttribute="centerX" constant="137.5" id="hC1-8K-0Dk"/>
+                                    <constraint firstItem="sBo-Y4-Wrn" firstAttribute="centerY" secondItem="B2x-Hz-zB1" secondAttribute="centerY" constant="-44.25" id="kuB-3g-xyz"/>
+                                    <constraint firstItem="Ane-5M-ogB" firstAttribute="top" secondItem="sBo-Y4-Wrn" secondAttribute="bottom" constant="7.5" id="mdU-t1-HDe"/>
                                     <constraint firstItem="3l9-YL-LEY" firstAttribute="centerY" secondItem="B2x-Hz-zB1" secondAttribute="centerY" constant="49.75" id="neB-5r-F9Q"/>
                                     <constraint firstItem="hUh-Mn-9Jn" firstAttribute="centerY" secondItem="B2x-Hz-zB1" secondAttribute="centerY" constant="49.25" id="qMS-pK-cel"/>
+                                    <constraint firstItem="sBo-Y4-Wrn" firstAttribute="leading" secondItem="B2x-Hz-zB1" secondAttribute="leading" constant="20" id="rbf-Hw-8RI"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -217,9 +221,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="REZ-0a-en0"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Config" id="PpI-i1-h7F"/>
+                    <tabBarItem key="tabBarItem" title="Config" image="Config" selectedImage="Config" id="PpI-i1-h7F"/>
                     <connections>
                         <outlet property="connectedDeviceLabel" destination="HEp-2D-hVo" id="XSR-Mc-4QS"/>
+                        <outlet property="profileLabel" destination="sBo-Y4-Wrn" id="yPz-06-CWt"/>
                         <outlet property="progressRing" destination="lci-N4-vJ2" id="tk4-Xe-i6F"/>
                         <outlet property="slider" destination="Ane-5M-ogB" id="x5y-jj-rMa"/>
                         <outlet property="valueField" destination="3l9-YL-LEY" id="Tfj-KV-DIS"/>
@@ -233,10 +238,12 @@
         <scene sceneID="Kj7-bE-g5M">
             <objects>
                 <tabBarController id="RU4-3i-kQd" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="deQ-uR-TYI">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="deQ-uR-TYI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="selectedImageTintColor" red="0.99843412639999995" green="0.31843149659999997" blue="0.38609984520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="PhE-7v-bGg" kind="relationship" relationship="viewControllers" id="U4O-xk-Hkg"/>
@@ -294,7 +301,7 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Profiles" id="nEK-P1-Jwd">
+                    <tabBarItem key="tabBarItem" title="Profiles" image="Profiles" selectedImage="Profiles" id="nEK-P1-Jwd">
                         <color key="badgeColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -306,4 +313,9 @@
             <point key="canvasLocation" x="1266" y="228"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Config" width="22.5" height="22.5"/>
+        <image name="Connect" width="22.5" height="22.5"/>
+        <image name="Profiles" width="22.5" height="22.5"/>
+    </resources>
 </document>

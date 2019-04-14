@@ -18,6 +18,7 @@ class ProfileTableViewController: UITableViewController {
     
     var profileNames: [NSManagedObject] = []
     var profileName: [NSManagedObject] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -214,6 +215,12 @@ class ProfileTableViewController: UITableViewController {
     }
     */
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        Properties.sharedInstance.selectedProfile = self.profileNames[indexPath.row].value(forKey: "name") as! String
+        Properties.sharedInstance.selectedAngle = self.profileNames[indexPath.row].value(forKey: "angle") as! Int16
+    }
+    
     /*
     // MARK: - Navigation
 

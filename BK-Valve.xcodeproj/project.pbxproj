@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F95E2129A103DD79FABFDF2 /* Pods_BK_Valve.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF5D09B14B503178CC4B43F /* Pods_BK_Valve.framework */; };
+		6607C8A22228CD8E006EDF23 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6607C8A12228CD8E006EDF23 /* Properties.swift */; };
 		6661F8C92212436400722812 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6661F8C82212436400722812 /* AppDelegate.swift */; };
 		6661F8CB2212436400722812 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6661F8CA2212436400722812 /* ViewController.swift */; };
 		6661F8CE2212436400722812 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6661F8CC2212436400722812 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		4CF5D09B14B503178CC4B43F /* Pods_BK_Valve.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BK_Valve.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6607C8A12228CD8E006EDF23 /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
 		6661F8C52212436400722812 /* BK-Valve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BK-Valve.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6661F8C82212436400722812 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6661F8CA2212436400722812 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		6661F8DE221243B500722812 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6607C8A12228CD8E006EDF23 /* Properties.swift */,
 				6661F8CF2212436400722812 /* BK_Valve.xcdatamodeld */,
 			);
 			path = Model;
@@ -250,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6607C8A22228CD8E006EDF23 /* Properties.swift in Sources */,
 				667C59D32217A8FD0029F8AD /* ProfileTableViewController.swift in Sources */,
 				6661F8CB2212436400722812 /* ViewController.swift in Sources */,
 				667C59D62217B6100029F8AD /* Utilities.swift in Sources */,
