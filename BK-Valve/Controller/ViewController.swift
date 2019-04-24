@@ -13,9 +13,6 @@ import CoreData
 
 class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDelegate {
     
-    
-    
-    
     var peripherals: [(peripheral: CBPeripheral, RSSI: Float)] = []
     var selectedPeripheral: CBPeripheral?
     var receivedBytes: [UInt8] = []
@@ -37,13 +34,11 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.hideKeyboardWhenTappedAround()
         
-        UITabBar.appearance().barTintColor = UIColor.lightGray // your color
+        UITabBar.appearance().barTintColor = UIColor.lightGray
         
         serial = BluetoothSerial(delegate: self)
-        
         
         valueField.delegate = self
         valueField.keyboardType = .asciiCapableNumberPad
@@ -80,13 +75,6 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
         
     }
     
-    @IBAction func valueFieldEditingBegin(_ sender: Any) {
-        
-        //valueField.text = ""
-        
-    }
-    
-    
     @IBAction func valueFieldEdited(_ sender: Any) {
         
         if Int(valueField.text ?? String(0)) ?? 0 > 100{
@@ -108,8 +96,6 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
         
     }
     
-    
-    
     @IBAction func sliderChanged(_ sender: Any) {
         valueField.text = String(Int((slider.value/255)*100))  // Byte's 0xFF(Hex) is 255(Dec) so maximum slider value is 255
                                                                // to have a better precision with microsteps on the device
@@ -120,15 +106,9 @@ class ViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDele
             Properties.sharedInstance.selectedProfile = ""
             Properties.sharedInstance.selectedAngle = Int16(angleValue)
         }
-        
         valueChanged(value: Int((slider.value/255)*100))
-        
-        //print("PGRing maxVal: \(progressRing.maxValue)")
-        
         sendData(value: UInt8(slider.value))
     }
-    
-    
     
     @IBAction func addButton(_ sender: UIButton) {
         messageBox(title: "Add a new profile", message: "Please type in the profile", btText: "Cancel", angleValue: angleValue)

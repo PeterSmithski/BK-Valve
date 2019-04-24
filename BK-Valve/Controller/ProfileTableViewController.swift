@@ -11,8 +11,6 @@ import CoreData
 
 
 class ProfileTableViewController: UITableViewController {
-    
-
 
     @IBOutlet var profileTableView2: UITableView!
     
@@ -22,20 +20,20 @@ class ProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.darkGray
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.title = "Profiles"
         UITabBar.appearance().barTintColor = UIColor.darkGray
         
+        let imgView =  UIImageView(frame: self.tableView.frame)
+        let img = UIImage(named: "background")
+        imgView.image = img
+        imgView.frame = CGRect(x: 0, y:0,width: self.tableView.frame.width,height: self.tableView.frame.height)
+        imgView.contentMode = UIView.ContentMode.scaleAspectFill
+        
+        self.tableView.backgroundView = imgView
+        
         profileTableView2.register(UITableViewCell.self, forCellReuseIdentifier: "profileCell")
-        
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+     
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -49,12 +47,10 @@ class ProfileTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return profileNames.count
     }
     
@@ -74,23 +70,17 @@ class ProfileTableViewController: UITableViewController {
         cell!.textLabel?.text = profileName.value(forKeyPath: "name") as? String
         cell!.detailTextLabel?.text = String("\(angleValueCD)%")
         cell!.detailTextLabel?.textColor = .black
-        cell!.backgroundColor = .darkGray
+        cell!.backgroundColor = .none
         return cell!
     }
-    
-    
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Profiles"
     }
     
-    
-    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
-    
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -172,15 +162,12 @@ class ProfileTableViewController: UITableViewController {
         return [delete, edit]
     }
     
-    
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let view = view as? UITableViewHeaderFooterView {
-            view.backgroundView?.backgroundColor = UIColor.lightGray
+            view.backgroundView?.backgroundColor = .none
             view.textLabel?.textColor = UIColor.black
         }
     }
-    
-    
     
     // MARK: Fetching from Core Data
     func fetchData(){
@@ -198,37 +185,11 @@ class ProfileTableViewController: UITableViewController {
         }
         tableView.reloadData()
     }
-    
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         Properties.sharedInstance.selectedProfile = self.profileNames[indexPath.row].value(forKey: "name") as! String
         Properties.sharedInstance.selectedAngle = self.profileNames[indexPath.row].value(forKey: "angle") as! Int16
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+        
 }

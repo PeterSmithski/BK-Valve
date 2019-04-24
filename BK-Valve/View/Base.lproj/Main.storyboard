@@ -18,8 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <color key="sectionIndexColor" red="0.99843412637710571" green="0.31843149662017822" blue="0.38609984517097473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="sectionIndexBackgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BTCell" textLabel="Qxw-G0-tJY" rowHeight="60" style="IBUITableViewCellStyleDefault" id="znF-MZ-sMJ">
@@ -38,7 +37,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -63,9 +61,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="egD-GI-E0K">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lci-N4-vJ2" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
                                 <rect key="frame" x="30" y="74" width="260" height="260"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="260" id="F51-ZG-ZEZ"/>
@@ -152,7 +152,6 @@
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="125" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="Ane-5M-ogB" userLabel="Value Slider">
                                         <rect key="frame" x="18" y="66" width="284" height="54"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="minimumTrackTintColor" red="1" green="0.31972376390000001" blue="0.38570577249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="thumbTintColor" red="1" green="0.31972376390000001" blue="0.38570577249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
@@ -208,15 +207,19 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="egD-GI-E0K" firstAttribute="leading" secondItem="REZ-0a-en0" secondAttribute="leading" id="5vR-3j-RE1"/>
                             <constraint firstItem="Eiy-gb-sqc" firstAttribute="top" secondItem="aF4-I5-7GH" secondAttribute="top" id="AI2-SJ-CiE"/>
                             <constraint firstItem="lci-N4-vJ2" firstAttribute="top" secondItem="Eiy-gb-sqc" secondAttribute="bottom" id="JyE-93-v4L"/>
                             <constraint firstItem="Eiy-gb-sqc" firstAttribute="trailing" secondItem="REZ-0a-en0" secondAttribute="trailing" id="Qme-6y-Us5"/>
                             <constraint firstItem="B2x-Hz-zB1" firstAttribute="leading" secondItem="REZ-0a-en0" secondAttribute="leading" id="Qnm-qJ-nOn"/>
                             <constraint firstItem="B2x-Hz-zB1" firstAttribute="top" secondItem="lci-N4-vJ2" secondAttribute="bottom" id="TaY-Vu-3dz"/>
                             <constraint firstItem="Eiy-gb-sqc" firstAttribute="leading" secondItem="REZ-0a-en0" secondAttribute="leading" id="WJd-8C-soQ"/>
+                            <constraint firstItem="egD-GI-E0K" firstAttribute="trailing" secondItem="REZ-0a-en0" secondAttribute="trailing" id="dK6-lO-vEA"/>
                             <constraint firstItem="lci-N4-vJ2" firstAttribute="centerX" secondItem="aF4-I5-7GH" secondAttribute="centerX" id="eaC-sa-fRD"/>
                             <constraint firstItem="lci-N4-vJ2" firstAttribute="centerY" secondItem="aF4-I5-7GH" secondAttribute="centerY" constant="-80" id="iYC-Gy-ThG"/>
+                            <constraint firstAttribute="bottom" secondItem="egD-GI-E0K" secondAttribute="bottom" id="p4e-O0-yC6"/>
                             <constraint firstItem="B2x-Hz-zB1" firstAttribute="trailing" secondItem="REZ-0a-en0" secondAttribute="trailing" id="tSq-J0-cJK"/>
+                            <constraint firstItem="egD-GI-E0K" firstAttribute="top" secondItem="aF4-I5-7GH" secondAttribute="top" id="wWn-kk-1xf"/>
                             <constraint firstItem="B2x-Hz-zB1" firstAttribute="bottom" secondItem="REZ-0a-en0" secondAttribute="bottom" id="xgt-5Z-zkY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="REZ-0a-en0"/>
@@ -264,10 +267,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" red="0.99843412639999995" green="0.31843149659999997" blue="0.38609984520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="profileCell" textLabel="mTO-Q9-sFz" detailTextLabel="AHk-Nh-t9S" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="GeJ-I0-eAN">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="profileCell" textLabel="mTO-Q9-sFz" detailTextLabel="AHk-Nh-t9S" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="GeJ-I0-eAN">
                                 <rect key="frame" x="0.0" y="55.5" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GeJ-I0-eAN" id="MGo-0R-vGW">
@@ -291,7 +293,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -317,5 +318,6 @@
         <image name="Config" width="22.5" height="22.5"/>
         <image name="Connect" width="22.5" height="22.5"/>
         <image name="Profiles" width="22.5" height="22.5"/>
+        <image name="background" width="1125" height="2436"/>
     </resources>
 </document>
